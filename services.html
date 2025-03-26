@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Our Services</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Services We Offer</h2>
+        
+        <div class="service-buttons">
+            <button class="service-btn" onclick="location.href='home-based-care.html'">Home-Based Care Services</button>
+            <button class="service-btn" onclick="location.href='doula-service.html'">Doula Service</button>
+        </div>
+    </section>
+
+    <section class="slider-container">
+        <div class="slider">
+            <div class="slides-wrapper">
+                <img src="slide1.jpeg" class="slide" alt="Slide 1">
+                <img src="slide2.jpeg" class="slide" alt="Slide 2">
+                <img src="slide3.jpeg" class="slide" alt="Slide 3">
+                <img src="slide4.jpeg" class="slide" alt="Slide 4">
+                <img src="slide5.jpeg" class="slide" alt="Slide 5">
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Home Health Care Services</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const slidesWrapper = document.querySelector(".slides-wrapper");
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    // Clone first and last slides for infinite loop effect
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    
+    slidesWrapper.appendChild(firstClone);
+    slidesWrapper.insertBefore(lastClone, slidesWrapper.firstChild);
+
+    function slideImages() {
+        index++;
+        slidesWrapper.style.transition = "transform 1.5s ease-in-out";
+        slidesWrapper.style.transform = `translateX(-${index * 16.66}%)`;
+
+        if (index === slides.length) {
+            setTimeout(() => {
+                slidesWrapper.style.transition = "none";
+                slidesWrapper.style.transform = "translateX(-16.66%)"; 
+                index = 1;
+            }, 1500);
+        }
+    }
+
+    setInterval(slideImages, 2000); // Change slide every 3 seconds
+});
+
+
+    </script>
+    
+</body>
+</html>
