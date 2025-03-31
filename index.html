@@ -3,15 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tranquil Transitions Doula and Home care Agency.</title>
+    <title>Tranquil Transitions Doula and Home Care Agency</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/236x/cc/4c/d7/cc4cd7e276543baac0c07cc4d904be8d.jpg') no-repeat center center/cover;
+            text-align: center;
+            position: relative;
+        }
+        header {
+            background-color: rgba(0, 128, 128, 0.9); /* Slight transparency */
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            padding: 50px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .slideshow-container {
+            width: 70%;
+            overflow: hidden;
+            margin: 20px auto;
+            border-radius: 15px;
+            border: 5px solid #008080;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slides-wrapper {
+            display: flex;
+            transition: transform 1.5s ease-in-out;
+        }
+        .slide {
+            width: 70%;
+            padding: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: 3px solid #004d4d;
+        }
+        .book-btn {
+            padding: 15px 30px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .book-btn:hover {
+            background-color: #006666;
+        }
+        footer {
+            background-color: rgba(0, 128, 128, 0.9); /* Slight transparency */
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Company Logo" class="logo">
-            <h1>Tranquil Transitions Doula and Home care Agency.</h1>
+            <h1>Tranquil Transitions Doula and Home Care Agency</h1>
+            <p class="tagline">Nothing but the best is good enough</p>
         </div>
         <nav>
             <ul>
@@ -26,21 +117,38 @@
 
     <section class="hero">
         <h2>Providing Quality Home Care</h2>
-        <p>Nothing but the best, is good enough</p>
-        <button class="book-btn" onclick="location.href='contact.html'">Book Now</button>
+        <button class="book-btn" onclick="location.href='contact.html'">Book Appointment</button>
         <div class="slideshow-container">
             <div class="slides-wrapper">
-                <img src="slide1.jpeg" class="slide" alt="Slide 1">
-                <img src="slide2.jpeg" class="slide" alt="Slide 2">
-                <img src="slide3.jpeg" class="slide" alt="Slide 3">
-                <img src="slide4.jpeg" class="slide" alt="Slide 4">
-                <img src="slide5.jpeg" class="slide" alt="Slide 5">
+                <img src="slide1.jpg" class="slide" alt="Slide 1">
+                <img src="slide2.jpg" class="slide" alt="Slide 2">
+                <img src="slide3.jpg" class="slide" alt="Slide 3">
+                <img src="slide4.jpg" class="slide" alt="Slide 4">
+                <img src="slide5.jpg" class="slide" alt="Slide 5">
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Tranquil Transitions Doula and Home care Agency</p>
+        <p>&copy; 2025 Tranquil Transitions Doula and Home Care Agency</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slidesWrapper = document.querySelector(".slides-wrapper");
+            const slides = document.querySelectorAll(".slide");
+            let index = 0;
+
+            function slideImages() {
+                index++;
+                if (index > slides.length - 1) {
+                    index = 0;
+                }
+                slidesWrapper.style.transform = `translateX(-${index * 70}%)`;
+            }
+
+            setInterval(slideImages, 4000); // Change slide every 4 seconds
+        });
+    </script>
 </body>
 </html>
